@@ -1,0 +1,4 @@
+# Suggest Git LFS for large models and data
+models/*.joblib filter=lfs diff=lfs merge=lfs -text
+saved_models/*.pkl filter=lfs diff=lfs merge=lfs -text
+data/*.csv filter=lfs diff=lfs merge=lfs -text
