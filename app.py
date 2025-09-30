@@ -115,25 +115,40 @@ st.markdown("""
         border-radius: 10px !important;
         box-shadow: 0 2px 8px rgba(102,126,234,0.07);
     }
-    /* Footer and project details text color */
-    .project-details, .footer-text {
-        color: #222 !important;
+</style>
+    /* Footer and project details text color (improved for dark theme) */
+    .project-details, .project-details * {
+        color: #e6eef8 !important; /* light bluish text for readability */
+    }
+    .project-details h1, .project-details h2, .project-details h3, .project-details h4, .project-details h5, .project-details h6 {
+        color: #ffffff !important; /* headings pure white for contrast */
+        font-weight: 700 !important;
+    }
+    .project-details li {
+        color: #e6eef8 !important;
+    }
+    .footer-text, .footer-text * {
+        color: #cbd5e1 !important; /* slightly muted footer text */
     }
     .footer-text p {
-        color: #666 !important;
+        color: #9aa6b2 !important;
         font-weight: 500;
     }
-    /* Ensure all headings and text have colors */
-    h1, h2, h3, h4, h5, h6, .stTitle, .stHeader, .stSubheader, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
-        color: #222 !important;
+
+    /* Broader markdown/container fallbacks to catch remaining unreadable text */
+    /* Target common Streamlit markdown container and block elements */
+    .stMarkdown, [data-testid="stMarkdownContainer"] *, .markdown-text-container, .block-container, .stBlock {
+        color: #e6eef8 !important;
     }
-    .stMarkdown p, .stMarkdown li, .stMarkdown div {
-        color: #222 !important;
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
     }
+
     /* Additional text elements */
-    .stText, .stCaption, .stCodeBlock, .stTable, .stDataFrame {
-        color: #222 !important;
+    .stText, .stCaption, .stCodeBlock, .stTable, .stDataFrame, .stMetric {
+        color: #e6eef8 !important;
     }
+</style>
 </style>
 """, unsafe_allow_html=True)
 
