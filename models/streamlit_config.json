@@ -1,0 +1,96 @@
+{
+  "app_title": "Smart City Energy Prediction",
+  "app_description": "Machine Learning models for predicting energy consumption in smart cities",
+  "models": {
+    "random_forest": {
+      "display_name": "Random Forest",
+      "model_file": "random_forest_model.joblib",
+      "metadata_file": "random_forest_metadata.json",
+      "performance_r2": 0.9939589475952082,
+      "description": "Random Forest trained on Smart City Energy data"
+    },
+    "xgboost": {
+      "display_name": "XGBoost",
+      "model_file": "xgboost_model.joblib",
+      "metadata_file": "xgboost_metadata.json",
+      "performance_r2": 0.9918898887746618,
+      "description": "XGBoost trained on Smart City Energy data"
+    },
+    "gradient_boosting": {
+      "display_name": "Gradient Boosting",
+      "model_file": "gradient_boosting_model.joblib",
+      "metadata_file": "gradient_boosting_metadata.json",
+      "performance_r2": 0.993931756918396,
+      "description": "Gradient Boosting trained on Smart City Energy data"
+    }
+  },
+  "feature_info": {
+    "numerical_features": [
+      "Hour of Day",
+      "Day of Week",
+      "Is Weekend",
+      "Is Holiday",
+      "Season",
+      "Week of Year",
+      "Month",
+      "Historical Electricity Load (kW)",
+      "Transformer Load Level",
+      "Voltage Level (V)",
+      "Current Level (A)",
+      "Power Factor",
+      "Demand Response Signal (Binary)",
+      "Grid Frequency (Hz)",
+      "Solar PV Output (kW)",
+      "Wind Power Output (kW)",
+      "Solar Panel Temperature (\u00b0C)",
+      "Wind Speed (m/s)",
+      "Wind Direction (degrees)",
+      "Battery State of Charge (SOC) (%)",
+      "Battery Discharge Rate (kW/h)",
+      "Renewable Forecast Error",
+      "Curtailment Event Flag",
+      "Temperature (\u00b0C)",
+      "Humidity (%)",
+      "Solar Irradiance (W/m\u00b2)",
+      "Cloud Cover (%)",
+      "Rainfall (mm)",
+      "Snowfall (mm)",
+      "Visibility (km)",
+      "Atmospheric Pressure (hPa)",
+      "Dew Point (\u00b0C)",
+      "Smart Meter Reading per Building (kW)",
+      "Building Type (Encoded)",
+      "Building Occupancy Rate (%)",
+      "Public Transit Operational Load (kW)",
+      "EV Charging Station Load (kW)",
+      "EV Charging Session Count",
+      "Traffic Congestion Index",
+      "Human Mobility Score",
+      "Region Urban Density Index",
+      "Construction or Maintenance Activity Flag",
+      "Time Since Last Peak (hours)",
+      "Time Until Next Predicted Peak (hours)"
+    ],
+    "categorical_features": [
+      "Load Sector Type",
+      "Weather Condition",
+      "Area Type"
+    ],
+    "target_variable": "Electricity Load",
+    "feature_descriptions": {
+      "total_features": 47,
+      "preprocessing": "StandardScaler for numerical, OneHotEncoder for categorical"
+    }
+  },
+  "dataset_info": {
+    "name": "Smart City Energy Dataset",
+    "total_samples": 72960,
+    "features_after_cleaning": 48,
+    "target_stats": {
+      "mean": 451.1259461467452,
+      "std": 261.9190670082464,
+      "min": -36.07259739964817,
+      "max": 2626.808970576653
+    }
+  }
+}

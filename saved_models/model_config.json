@@ -1,0 +1,26 @@
+{
+  "target_variable": "Electricity Load",
+  "selected_features": [
+    "Historical Electricity Load (kW)",
+    "Current Level (A)",
+    "Net Load",
+    "Peak Load Indicator",
+    "Curtailment Risk / Surplus Flag",
+    "Latitude",
+    "Renewable Forecast Error",
+    "Solar Panel Temperature (\u00b0C)",
+    "Longitude",
+    "Month"
+  ],
+  "best_model": "Logistic Regression",
+  "model_performances": {
+    "Logistic Regression": 0.975005135930973,
+    "Random Forest": 0.9740357607727615,
+    "SVM": 0.9748268056794019,
+    "XGBoost": 0.9726356216994718
+  },
+  "dataset_info": {
+    "total_samples": 72960,
+    "n_features": 10
+  }
+}

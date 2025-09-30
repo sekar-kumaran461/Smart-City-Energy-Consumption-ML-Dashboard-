@@ -1,0 +1,72 @@
+{
+  "model_name": "Linear Regression",
+  "model_type": "LinearRegression",
+  "training_date": "2025-09-10 14:02:50",
+  "performance": {
+    "test_r2": 0.9941715430065424,
+    "test_rmse": 20.056815925023624,
+    "test_mae": 16.06359515367758,
+    "cv_r2_mean": 0.9941613649869686,
+    "cv_r2_std": 2.0736274157694017e-05
+  },
+  "features": {
+    "numerical_features": [
+      "Hour of Day",
+      "Day of Week",
+      "Is Weekend",
+      "Is Holiday",
+      "Season",
+      "Week of Year",
+      "Month",
+      "Historical Electricity Load (kW)",
+      "Transformer Load Level",
+      "Voltage Level (V)",
+      "Current Level (A)",
+      "Power Factor",
+      "Demand Response Signal (Binary)",
+      "Grid Frequency (Hz)",
+      "Solar PV Output (kW)",
+      "Wind Power Output (kW)",
+      "Solar Panel Temperature (\u00b0C)",
+      "Wind Speed (m/s)",
+      "Wind Direction (degrees)",
+      "Battery State of Charge (SOC) (%)",
+      "Battery Discharge Rate (kW/h)",
+      "Renewable Forecast Error",
+      "Curtailment Event Flag",
+      "Temperature (\u00b0C)",
+      "Humidity (%)",
+      "Solar Irradiance (W/m\u00b2)",
+      "Cloud Cover (%)",
+      "Rainfall (mm)",
+      "Snowfall (mm)",
+      "Visibility (km)",
+      "Atmospheric Pressure (hPa)",
+      "Dew Point (\u00b0C)",
+      "Smart Meter Reading per Building (kW)",
+      "Building Type (Encoded)",
+      "Building Occupancy Rate (%)",
+      "Public Transit Operational Load (kW)",
+      "EV Charging Station Load (kW)",
+      "EV Charging Session Count",
+      "Traffic Congestion Index",
+      "Human Mobility Score",
+      "Region Urban Density Index",
+      "Construction or Maintenance Activity Flag",
+      "Time Since Last Peak (hours)",
+      "Time Until Next Predicted Peak (hours)"
+    ],
+    "categorical_features": [
+      "Load Sector Type",
+      "Weather Condition",
+      "Area Type"
+    ],
+    "total_features": 47
+  },
+  "dataset_info": {
+    "total_samples": 72960,
+    "training_samples": 58368,
+    "test_samples": 14592,
+    "target_variable": "Electricity Load"
+  }
+}
