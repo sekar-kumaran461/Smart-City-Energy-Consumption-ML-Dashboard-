@@ -115,7 +115,6 @@ st.markdown("""
         border-radius: 10px !important;
         box-shadow: 0 2px 8px rgba(102,126,234,0.07);
     }
-</style>
     /* Footer and project details text color (improved for dark theme) */
     .project-details, .project-details * {
         color: #e6eef8 !important; /* light bluish text for readability */
