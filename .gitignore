@@ -28,5 +28,3 @@ Thumbs.db
 # Git LFS pointer files
 *.bin
 *.model
-
-models/*.pkl
