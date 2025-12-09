@@ -25,22 +25,82 @@ def inject_theme() -> None:
             --ink: #0f253a;
         }}
 
-        html, body, .main {{
-            font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
-            background: radial-gradient(circle at 20% 20%, rgba(20,200,192,0.12), transparent 45%),
-                        radial-gradient(circle at 80% 0%, rgba(246,166,35,0.12), transparent 35%),
-                        var(--page-bg);
-            color: var(--ink);
+        /* SIDEBAR: Dark Blue BG -> White Text */
+        [data-testid="stSidebar"] {{
+            background-color: #041a2f !important;
+        }}
+        
+        [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, 
+        [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] div, 
+        [data-testid="stSidebar"] label, [data-testid="stSidebar"] .stMarkdown {{
+            color: #ffffff !important;
+        }}
+        
+        /* Fix sidebar nav links if they are not caught by above */
+        [data-testid="stSidebarNav"] span {{
+            color: #ffffff !important;
         }}
 
+        /* GLOBAL: Force Light Theme (White BG -> Black Text) */
+        html, body, .main, .stApp {{
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }}
+
+        /* Force all standard text elements to black (except in sidebar/hero) */
+        .main h1, .main h2, .main h3, .main h4, .main h5, .main h6, 
+        .main p, .main li, .main span, .main div, .main label, 
+        .main .stMarkdown, .main .stText {{
+            color: #000000 !important;
+        }}
+
+        /* INPUTS: Specific styling for input widgets to be Dark BG + White Text */
+        .main input, .main textarea, .main select {{
+            color: #ffffff !important;
+            background-color: #262730 !important; /* Dark grey background */
+        }}
+        
+        /* Fix for Selectbox/Multiselect which use different structure */
+        .main [data-baseweb="select"] > div {{
+            background-color: #262730 !important;
+            color: #ffffff !important;
+        }}
+        .main [data-baseweb="select"] span {{
+            color: #ffffff !important;
+        }}
+        
+        /* Fix for NumberInput +/- buttons */
+        .main [data-testid="stNumberInput"] button {{
+            color: #ffffff !important;
+            background-color: #262730 !important;
+        }}
+
+        /* WIDGETS: Force labels to black in main area */
+        .main .stSlider label, .main .stNumberInput label, .main .stSelectbox label, 
+        .main .stDateInput label, .main .stTimeInput label, 
+        .main [data-testid="stWidgetLabel"], .main [data-testid="stMetricLabel"] {{
+            color: #000000 !important;
+        }}
+        
+        /* Metric Values */
+        [data-testid="stMetricValue"] {{
+            color: #041a2f !important; /* Dark blue for emphasis */
+        }}
+
+        /* COMPONENT: Hero Section (Dark BG -> White Text) */
         .hero {{
-            background: linear-gradient(135deg, rgba(4,26,47,0.95), rgba(15,56,86,0.92));
+            background: linear-gradient(135deg, #041a2f, #0f3856) !important;
             padding: 2.8rem;
             border-radius: 34px;
-            color: #eaf6ff;
-            box-shadow: 0 25px 60px rgba(4,26,47,0.35);
+            color: #ffffff !important;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
             position: relative;
             overflow: hidden;
+        }}
+        
+        /* Force text INSIDE hero to be white */
+        .hero h1, .hero h2, .hero h3, .hero p, .hero span, .hero div {{
+            color: #ffffff !important;
         }}
 
         .hero:after {{
@@ -52,7 +112,6 @@ def inject_theme() -> None:
             pointer-events: none;
         }}
 
-        .hero h1 {{ font-size: 2.6rem; margin-bottom: 0.4rem; letter-spacing: -0.01em; }}
         .hero-grid {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.2rem; margin-top: 2rem; }}
 
         .pill {{
@@ -65,28 +124,37 @@ def inject_theme() -> None:
             text-transform: uppercase;
             font-size: 0.78rem;
             letter-spacing: 0.1em;
+            color: #ffffff !important;
         }}
 
         .insight-grid {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 1rem; margin: 1.4rem 0; }}
-        .insight-card {{ background: white; border-radius: 20px; padding: 1.2rem; box-shadow: 0 18px 40px rgba(4,26,47,0.12); border: 1px solid rgba(4,26,47,0.05); }}
-        .insight-card h4 {{ margin: 0; font-size: 1rem; }}
-        .insight-card .value {{ font-size: 1.9rem; font-weight: 600; margin-top: 0.4rem; color: var(--primary); }}
+        
+        .insight-card {{ 
+            background: #f8f9fa !important; /* Light grey card */
+            border-radius: 20px; 
+            padding: 1.2rem; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            border: 1px solid rgba(0,0,0,0.05); 
+        }}
+        .insight-card h4 {{ margin: 0; font-size: 1rem; color: #000000 !important; }}
+        .insight-card .value {{ font-size: 1.9rem; font-weight: 600; margin-top: 0.4rem; color: #041a2f !important; }}
+        .insight-card p {{ color: #333333 !important; }}
 
         .diamond-grid {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 1.2rem; }}
         .diamond-card {{
-            background: white;
+            background: #f8f9fa !important;
             border-radius: 22px;
             padding: 1rem 1.4rem;
             text-align: center;
-            box-shadow: inset 0 0 0 1px rgba(4,26,47,0.08), 0 12px 25px rgba(4,26,47,0.08);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }}
 
-        .diamond-card .label {{ font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: #5f7088; }}
-        .diamond-card .metric {{ font-size: 1.4rem; font-weight: 600; color: var(--primary); }}
+        .diamond-card .label {{ font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: #555555 !important; }}
+        .diamond-card .metric {{ font-size: 1.4rem; font-weight: 600; color: #041a2f !important; }}
 
         .chip {{
-            background: linear-gradient(120deg, var(--accent), #6cf2da);
-            color: #042339;
+            background: linear-gradient(120deg, #14c8c0, #6cf2da);
+            color: #042339 !important;
             font-weight: 600;
             border-radius: 999px;
             padding: 0.2rem 0.9rem;
@@ -95,9 +163,103 @@ def inject_theme() -> None:
         }}
 
         .card {{
-            background: rgba(255,255,255,0.95);
+            background: #f8f9fa !important;
             border-radius: 22px;
             padding: 1.2rem 1.4rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            color: #000000 !important;
+        }}
+        
+        .story-card {{
+            background: #eaf6ff !important; /* Light blue card for visibility */
+            border: 1px solid #d0e1f0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            color: #000000 !important;
+        }}
+        
+        .story-card h3 {{
+            color: #041a2f !important;
+            margin-top: 0;
+        }}
+        
+        .hero h1, .hero p, .hero div {{
+             color: #eaf6ff !important;
+        }}
+
+        .hero:after {{
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 10%, rgba(255,255,255,0.25), transparent 50%);
+            opacity: 0.6;
+            pointer-events: none;
+        }}
+
+        .hero-grid {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.2rem; margin-top: 2rem; }}
+
+        .pill {{
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.2rem 1rem;
+            border-radius: 999px;
+            background-color: rgba(255,255,255,0.18);
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            color: #ffffff !important;
+        }}
+
+        .insight-grid {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 1rem; margin: 1.4rem 0; }}
+        
+        .insight-card {{ 
+            background: var(--secondary-background-color); 
+            border-radius: 20px; 
+            padding: 1.2rem; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            border: 1px solid rgba(128,128,128,0.1); 
+        }}
+        .insight-card h4 {{ margin: 0; font-size: 1rem; color: var(--text-color); }}
+        .insight-card .value {{ font-size: 1.9rem; font-weight: 600; margin-top: 0.4rem; color: var(--primary-color); }}
+        .insight-card p {{ color: var(--text-color); opacity: 0.8; }}
+
+        .diamond-grid {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 1.2rem; }}
+        .diamond-card {{
+            background: var(--secondary-background-color);
+            border-radius: 22px;
+            padding: 1rem 1.4rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }}
+
+        .diamond-card .label {{ font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-color); opacity: 0.7; }}
+        .diamond-card .metric {{ font-size: 1.4rem; font-weight: 600; color: var(--primary-color); }}
+
+        .chip {{
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-background-color));
+            color: white;
+            font-weight: 600;
+            border-radius: 999px;
+            padding: 0.2rem 0.9rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+        }}
+
+        .card {{
+            background: var(--secondary-background-color);
+            border-radius: 22px;
+            padding: 1.2rem 1.4rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            color: var(--text-color);
+        }}
+        
+        .story-card {{
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            color: inherit;
+        }}
             border: 1px solid rgba(4,26,47,0.04);
             box-shadow: 0 15px 45px rgba(4,26,47,0.08);
         }}
